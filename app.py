@@ -1,10 +1,16 @@
 from flask import Flask, render_template
+from models import Tour, db
+
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def render_main():
-	return render_template('index.html')
+    tours = db.session.query(Tour).all()
+    #tours = db.session.query(Tour).order_by(Tour.title.desc()).limit(10)
+    #tour = db.session.query(Tour).get(1) # получение одной записи
+    return render_template('index.html', tours=tours)
 
 
 @app.route('/departures/<departure>/')
