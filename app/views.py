@@ -1,8 +1,7 @@
-from flask import Flask, render_template
-from models import Tour, db
+from flask import render_template
 
-
-app = Flask(__name__)
+from app import app, db
+from app.models import Tour
 
 
 @app.route('/')
@@ -32,6 +31,3 @@ def render_not_found(error):
 @app.errorhandler(500)
 def render_server_error(error):
     return "Что-то не так, но мы все починим", 500
-
-
-app.run()

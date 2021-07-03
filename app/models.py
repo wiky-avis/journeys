@@ -1,16 +1,11 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask
 
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 
 class Tour(db.Model):
     __tablename__ = 'tours'
+
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     description = db.Column(db.Text)
@@ -21,6 +16,3 @@ class Tour(db.Model):
     country = db.Column(db.String)
     nights = db.Column(db.Integer)
     date = db.Column(db.Date)
-
-
-db.create_all()
