@@ -25,9 +25,9 @@ def render_book(book_id):
 
 @app.errorhandler(404)
 def render_not_found(error):
-    return "Что-то не так, но мы все починим:\n{}".format(error), 404
+    return 'Что-то не так, но мы все починим:\n{}'.format(error), 404
 
 
 @app.errorhandler(500)
 def render_server_error(error):
-    return "Что-то не так, но мы все починим", 500
+    return 'Что-то не так, но мы все починим', 500

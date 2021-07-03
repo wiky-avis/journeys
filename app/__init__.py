@@ -1,10 +1,10 @@
 from flask import Flask
-from flask_migrate import Migrate
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from flask_migrate import Migrate
 
 from app.config import Config
-from app.models import db, Tour
+from app.models import Tour, db
 
 app = Flask(__name__)
 admin = Admin(app)
