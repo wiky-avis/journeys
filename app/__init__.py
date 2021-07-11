@@ -4,7 +4,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask_migrate import Migrate
 
 from app.config import Config
-from app.models import Tour, db
+from app.models import Tour, db, Departure
 
 app = Flask(__name__)
 admin = Admin(app)
@@ -16,3 +16,4 @@ db.init_app(app)
 from app.views import *
 
 admin.add_view(ModelView(Tour, db.session))
+admin.add_view(ModelView(Departure, db.session))
