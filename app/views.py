@@ -17,10 +17,10 @@ def render_products():
     return render_template('departure.html')
 
 
-@app.route('/tours/<int:id>/')
-def render_book(book_id):
-    print(type(book_id))
-    return render_template('tour.html')
+@app.route('/tours/<int:tour_id>/')
+def render_book(tour_id):
+    tour = Tour.query.filter_by(id=tour_id).first()
+    return render_template('tour.html', tour=tour)
 
 
 @app.errorhandler(404)
